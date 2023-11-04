@@ -1,0 +1,27 @@
+body {
+    background-color: #9999bb
+}
+
+h1 {
+    font-family: 'Neuton', sans-serif;
+    font-weight: 700;
+    font-size: 3.5em;
+    text-align: center;
+}
+
+#whereTo {
+    display: flex;
+    justify-content: center;
+}
+
+.whereTo {
+    /* padding-right: 5px; */
+    font-family: 'Neuton', sans-serif;
+    font-weight: 300;
+    font-size: 2em;
+
+}
+
+.selection {
+    width: 300px;
+}
