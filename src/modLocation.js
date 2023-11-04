@@ -1,29 +1,33 @@
 var key = countryConfig.KEY;
 var host = countryConfig.HOST;
+const selection = document.querySelector('select');
 
+// import axios from './axios';
 // capital, countryCode, fipsCode, isoCode, name, numcities, numPlaces, wikiDataId
 
 // Countries
 // Returns Countries
 export async function getCountries(prefix) {
-    const countries = {
-        method: 'GET',
-        url: 'https://wft-geo-db.p.rapidapi.com/v1/geo/countries',
-        params: {
-            params: {namePrefix: prefix},
-        },
-        headers: {
-            'X-RapidAPI-Key': key,
-            'X-RapidAPI-Host': host
+    const countries = await axios.get(`https://wft-geo-db.p.rapidapi.com/v1/geo/countries`,
+        {
+            headers: {
+                'X-RapidAPI-Key': key,
+                'X-RapidAPI-Host': host
+            },
+            params: {
+                params: {namePrefix: prefix},
+            },
         }
-    };
+    )
+    // console.log(countries.data)
 
-    try {
-        const response = await axios.request(countries);
-        console.log(response.data);
-    } catch(error) {
-        console.error(error);
-    }
+    return countries.data;
+    // try {
+    //     const response = await axios.request(countries);
+    //     console.log(response.data);
+    // } catch(error) {
+    //     console.log(error);
+    // }
 }
 
 // Country Details

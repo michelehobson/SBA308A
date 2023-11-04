@@ -1,3 +1,4 @@
+import axios from './axios';
 var key = weatherConfig.KEY;
 var host = weatherConfig.HOST;
 
@@ -19,7 +20,7 @@ export async function getForecast(longitude, latitude) {
         const response = await axios.request(forecast);
         console.log(response.data);
     } catch(error) {
-        console.error(error);
+        console.log(error);
     }
 }
 
