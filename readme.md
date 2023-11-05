@@ -29,7 +29,7 @@ About my website
 
 Extras:
 1. Hid API keys
-2. Due to the limitations of the "Geo" APIs, I stored the countries in database.json
+2. 
 
 I would have also had liked to:
 1. Add an auto suggest for the dropdown(s).

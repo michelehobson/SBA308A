@@ -1,12 +1,8 @@
-import * as Location from './modLocation.js';
-// import * as Weather from './modWeather.js';
+import * as Location from './modAPIs.js';
 
 var key = countryConfig.KEY;
 var host = countryConfig.HOST;
 
-// const whereTo = document.querySelector('div:nth-of-type(1)');
-// const regions = document.querySelector('div:nth-of-type(2)');
-// const cities = document.querySelector('div:nth-of-type(3)');
 const wToSelect = document.querySelector('select:nth-of-type(1)');
 const regSelect = document.getElementById('selectRegion');
 const citySelect = document.getElementById('selectCity');
@@ -34,7 +30,6 @@ async function getStates(country) {
        }
    )
    if(states !== null) {
-       console.log('states !== null')
        const regionOptionBlank = document.createElement("option");
        regSelect.appendChild(regionOptionBlank);
        states.data.forEach((region) => {
@@ -66,18 +61,17 @@ async function getCities(country, regionCode) {
           const cityOption = document.createElement("option");
           cityOption.text = city.name;
           cityOption.value = city.latitude.concat(',').concat(city.longitude);
+          console.log(cityOption.value)
           citySelect.appendChild(cityOption);
        });
    }
 }
 
 country.addEventListener('change', async (e) => {
-   console.log('County Triggered')
    e.preventDefault();
    if(country.value !== countryIso) {
       if(country.value.length > 0) {
          countryIso = country.value;
-         console.log(countryIso)
          clearRegions();
          getStates(countryIso);
       } else {
@@ -91,7 +85,6 @@ country.addEventListener('change', async (e) => {
 })
 
 region.addEventListener('change', async (e) => {
-   console.log("Region Triggered")
    e.preventDefault();
    if(region.value !== regionIso) {
       if(region.value.length > 0) {
@@ -106,13 +99,12 @@ region.addEventListener('change', async (e) => {
    }
 })
 
-city.addEventListener('change', async (e) => { //Prevent unnecessay API calls
-   console.log("City Triggered")
-
+city.addEventListener('change', async (e) => {
    e.preventDefault()
    if(city.value !== cityIso) {
       if(city.value.length > 0) {
          cityIso = city.value;
+         let currentWeather = Location.getForecast(cityIso)
       } else {
          clearCities();
       }
@@ -122,13 +114,11 @@ city.addEventListener('change', async (e) => { //Prevent unnecessay API calls
 })
 
 let clearCities = () => {
-   console.log('Clearing Cities')
    cityIso = '';
    city.length = 0;
-
 }
+
 let clearRegions = () => {
-   console.log('Clearing Regions & Cities')
    regionIso = '';
    cityIso = '';
    region.length = 0;
