@@ -1,27 +1,42 @@
 body {
     background-color: #9999bb
 }
-
 h1 {
     font-family: 'Neuton', sans-serif;
     font-weight: 700;
     font-size: 3.5em;
     text-align: center;
 }
-
-#whereTo {
+#whereTo, #cities{
     display: flex;
     justify-content: center;
 }
-
 .whereTo {
-    /* padding-right: 5px; */
     font-family: 'Neuton', sans-serif;
     font-weight: 300;
     font-size: 2em;
-
 }
-
+#regions {
+    align-self: flex-end;
+    margin-top: 20px;
+}
+.regions{
+    font-family: 'Neuton', sans-serif;
+    font-weight: 300;
+    font-size: 2em;
+}
+#cities {
+    align-self: flex-end;
+    margin-top: 20px;
+}
+.cities{
+    font-family: 'Neuton', sans-serif;
+    font-weight: 300;
+    font-size: 2em;
+}
 .selection {
-    width: 300px;
+    width: fit-content;
+    font-family: 'Neuton', sans-serif;
+    font-weight: 200;
+    font-size: .75em;
 }

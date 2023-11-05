@@ -2,34 +2,6 @@ var key = countryConfig.KEY;
 var host = countryConfig.HOST;
 const selection = document.querySelector('select');
 
-// import axios from './axios';
-// capital, countryCode, fipsCode, isoCode, name, numcities, numPlaces, wikiDataId
-
-// Countries
-// Returns Countries
-export async function getCountries(prefix) {
-    const countries = await axios.get(`https://wft-geo-db.p.rapidapi.com/v1/geo/countries`,
-        {
-            headers: {
-                'X-RapidAPI-Key': key,
-                'X-RapidAPI-Host': host
-            },
-            params: {
-                params: {namePrefix: prefix},
-            },
-        }
-    )
-    // console.log(countries.data)
-
-    return countries.data;
-    // try {
-    //     const response = await axios.request(countries);
-    //     console.log(response.data);
-    // } catch(error) {
-    //     console.log(error);
-    // }
-}
-
 // Country Details
 // capital, code, callingCode, currencyCode, flagImageUrl, name, numRegions, wikiDataId
 export async function getDemographics(country) {
@@ -52,16 +24,18 @@ export async function getDemographics(country) {
 
 // Country Regions
 // Returns States
-// countryCode, fipsCode, isoCode, name, wikiDataId
+// name, isoCode, countryCode, latitude, longitude
 export async function getStates(country) {
-    const states = {
-        method: 'GET',
-        url: `https://wft-geo-db.p.rapidapi.com/v1/geo/countries/${country}/regions`,
-        headers: {
-            'X-RapidAPI-Key': key,
-            'X-RapidAPI-Host': host
+    const states = await axios.get(`https://country-state-city-search-rest-api.p.rapidapi.com/states-by-countrycode`,
+        {
+            params: {countrycode: country},
+            headers: {
+                'X-RapidAPI-Key': key,
+                'X-RapidAPI-Host': host
+            },
         }
-    };
+    )
+    return states.data;
 
     try {
         const response = await axios.request(states);

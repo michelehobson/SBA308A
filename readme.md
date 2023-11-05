@@ -1,8 +1,8 @@
 Readme
 
 JavaScript Requirements Met:
- 1. 
- 2. 
+ 1. Used Axios to communicate with external web servers and populate content.
+ 2. Created dropdown and used get request to retrieve associated content.
  3. 
  4. 
  5. 
