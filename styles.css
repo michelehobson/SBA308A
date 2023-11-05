@@ -7,7 +7,7 @@ h1 {
     font-size: 3.5em;
     text-align: center;
 }
-#whereTo, #cities{
+#whereTo, #regions, #cities{
     display: flex;
     justify-content: center;
 }
@@ -39,4 +39,8 @@ h1 {
     font-family: 'Neuton', sans-serif;
     font-weight: 200;
     font-size: .75em;
+}
+#selectDestination, #selectRegion, #selectCity {
+    align-self: center;
+    width: 500px;
 }
