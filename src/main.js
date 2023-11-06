@@ -3,11 +3,11 @@ import * as Location from './modAPIs.js';
 var key = countryConfig.KEY;
 var host = countryConfig.HOST;
 
-const wToSelect = document.querySelector('select:nth-of-type(1)');
+const wToSelect = document.querySelector('select:nth-of-type(2)');
 const regSelect = document.getElementById('selectRegion');
 const citySelect = document.getElementById('selectCity');
 
-const country = document.querySelector('select:nth-of-type(1)');
+const country = document.querySelector('select:nth-of-type(2)');
 const region = document.getElementById('selectRegion');
 const city = document.getElementById('selectCity');
 const images = document.getElementById('images');
@@ -127,7 +127,7 @@ let clearRegions = () => {
 
 }
 
-
+let imageNbr = 0;
 let countryIso = 'US';
 let regionIso = 'GA';
 let cityIso = '33.534068, -84.231185';
@@ -137,6 +137,6 @@ h1.addEventListener('click', () => {
    const weather = Location.getForecast(cityIso);
    console.log(weather);
 
-   Location.getImages('travel', images);
+   imageNbr = Location.getImages(1, imageNbr, images);
 
 })      

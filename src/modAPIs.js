@@ -40,13 +40,10 @@ export async function getForecast(coordinates) {
     return weather;
 }
 
-var pexelKey = pexelConfig.KEY;
-export async function getImages(topic, parent) {
-    const images = [
+export async function getImages(action, index, parent) {
+    const image = [
         'https://images.pexels.com/photos/2028885/pexels-photo-2028885.jpeg?auto=compress&cs=tinysrgb&w=1600',
         'https://images.pexels.com/photos/5707570/pexels-photo-5707570.jpeg?auto=compress&cs=tinysrgb&w=1600',
-        'https://images.pexels.com/photos/17303165/pexels-photo-17303165/free-photo-of-skeleton-exhibits-inside-oxford-university-museum-of-natural-history.jpeg?auto=compress&cs=tinysrgb&w=1600',
-        'https://images.pexels.com/photos/3801347/pexels-photo-3801347.jpeg?auto=compress&cs=tinysrgb&w=1600',
         'https://images.pexels.com/photos/38280/monkey-mandril-africa-baboon-38280.jpeg?auto=compress&cs=tinysrgb&w=1600',
         'https://images.pexels.com/photos/161913/germany-history-architecture-medieval-161913.jpeg?auto=compress&cs=tinysrgb&w=1600',
         'https://images.pexels.com/photos/13174298/pexels-photo-13174298.jpeg?auto=compress&cs=tinysrgb&w=1600',
@@ -94,29 +91,25 @@ export async function getImages(topic, parent) {
         'https://images.pexels.com/photos/2178175/pexels-photo-2178175.jpeg?auto=compress&cs=tinysrgb&w=1600',
         'https://images.pexels.com/photos/2662086/pexels-photo-2662086.jpeg?auto=compress&cs=tinysrgb&w=1600',
         'https://images.pexels.com/photos/358457/pexels-photo-358457.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    ]
- // const client = await axios.get(`https://api.pexels.com/v1/search?query=${topic}&per_page=3&page=26`,
-    // const client = await axios.get(`https://api.pexels.com/v1/collections/travel-dnv3bgm&per_page=3&page=30`,
-    const client = await axios.get(`https://api.pexels.com/collections/travel_dnv3bgm&per_page=3&page=30`,
-        {
-            headers: {
-                Authorization: pexelKey
-            }
-        })
+        'https://images.pexels.com/photos/17303165/pexels-photo-17303165/free-photo-of-skeleton-exhibits-inside-oxford-university-museum-of-natural-history.jpeg?auto=compress&cs=tinysrgb&w=1600',
+        'https://images.pexels.com/photos/3801347/pexels-photo-3801347.jpeg?auto=compress&cs=tinysrgb&w=1600',
 
-        for(let i = 0; i < 3; i++) {
-            const medium = client.data.photos[i].src.medium;
-            const artist = client.data.photos[i].photographer;
+    ]
+    const ctr = index + 3;
+    if(action = 1)
+        for(index; index < ctr; index++) {
             const photo = document.createElement('div');
-            photo.innerHTML = `<img src=${medium}><figcaption>Photo By ${artist}</figcaption>`
+            photo.innerHTML = `<img src=${image[index]}>`//<figcaption>Photo By ${artist}</figcaption>`
+            photo.classList.add('gallery' + "img")
             parent.appendChild(photo);
 
         }
-        console.log(client)
-        // console.log(client.data)
-        // console.log(client.data.photos[0].src.medium)
-        // console.log(client.data.photos[1].src.medium)
-        // console.log(client.data.photos[2].src.medium)
+    //console.log(client)
+    // console.log(client.data)
+    // console.log(client.data.photos[0].src.medium)
+    // console.log(client.data.photos[1].src.medium)
+    // console.log(client.data.photos[2].src.medium)
+    return index;
 }
 
 

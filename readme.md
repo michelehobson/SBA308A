@@ -29,7 +29,7 @@ About my website
 
 Extras:
 1. Hid API keys
-2. 
+2. Because I wasn't thrilled with the images returned by Pexels, I manually chose images and stored them in an array
 
 I would have also had liked to:
 1. Add an auto suggest for the dropdown(s).

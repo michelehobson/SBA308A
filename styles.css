@@ -1,5 +1,7 @@
 body {
-    background-color: #9999bb
+    /* background-color: #9999bb */
+    background-color: #383849;
+    color: white;
 }
 h1 {
     font-family: 'Neuton', sans-serif;
@@ -7,55 +9,67 @@ h1 {
     font-size: 3.5em;
     text-align: center;
 }
+/* DIVS IDS*/
 #whereTo, #regions, #cities{
     display: flex;
-    /* justify-content: center; */
-    margin-left: 100px;
-    margin-top: 100px;
+    /* justify-content: flex-start; */
+    margin-left: 80px;
+    margin-top: 25px;
+}
+#div1 {
+    display: flex;
+    flex-flow: column wrap;
+    width: 62vw;
+}
+#regions, #cities {
+    /* align-self: flex-end; */
+    margin-top: 20px;
+    margin-left: 150px;
+}
 
-}
-#selectDestination, #selectRegion, #selectCity {
-    margin-right: 100px;
-    width: 500px;
-}
+/* DIV CLASSES */
 .whereTo {
     font-family: 'Neuton', sans-serif;
     font-weight: 300;
     font-size: 2em;
-}
-#regions {
-    align-self: flex-end;
-    margin-top: 20px;
 }
 .regions{
     font-family: 'Neuton', sans-serif;
     font-weight: 300;
     font-size: 2em;
 }
-#cities {
-    align-self: flex-end;
-    margin-top: 20px;
-}
 .cities{
     font-family: 'Neuton', sans-serif;
     font-weight: 300;
     font-size: 2em;
 }
-.selectRegion {
-    width: fit-content;
-    font-family: 'Neuton', sans-serif;
-    font-weight: 200;
-    font-size: .75em;
-    margin-left: 58px;
-}
-.selectCity {
-    width: fit-content;
-    font-family: 'Neuton', sans-serif;
-    font-weight: 200;
-    font-size: .75em;
-    margin-left: 90px;
+
+/*  SELECT IDS */
+#selectDestination, #selectRegion, #selectCity {
+    margin-right: 100px;
+    width: 400px;
 }
 
+
+/*  SELECT CLASSES */
+.selectDestination {
+    margin-left: 10px;
+}
+.selectRegion {
+    margin-left: 18px;
+}
+.selectCity {
+    margin-left: 50px;
+}
+.selectDestination, .selectRegion, .selectCity {
+    width: fit-content;
+    font-family: 'Neuton', sans-serif;
+    font-weight: 200;
+    font-size: .75em;    
+    border-radius: 10px;
+}
+
+/* IMAGE CLASSES */
 .gallery {
     display: flex;
     flex-flow: row wrap;
@@ -63,12 +77,11 @@ h1 {
     width: 80vw;
     margin: 100px auto 0px auto;
 }
-
 .gallery img {
-    width: calc(80vw / 3);
-    /* height: 300px; */
+    width: calc(80vw / 3.4);
+    margin: 0px 5px 0px 5px;
+    border-radius: 6px;
 }
-
 figcaption {
     text-align: center;
 }
