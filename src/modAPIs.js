@@ -1,5 +1,6 @@
 var demoKey = countryConfig.KEY;
 var demoHost = countryConfig.HOST;
+
 export async function getCountries(wToSelect) {
     const countries = await axios.get(`https://country-state-city-search-rest-api.p.rapidapi.com/allcountries`,
         {
@@ -38,4 +39,16 @@ export async function getForecast(coordinates) {
     )
     return weather;
 }
+
+var pexelKey = pexelConfig.KEY;
+export async function getImages(topic) {
+    const client = await axios.get(`https://api.pexels.com/v1/search?query=${topic}&per_page=3&page=26`,
+        {
+            headers: {
+                Authorization: pexelKey
+              }           
+        })
+    return client;
+}
+
 
