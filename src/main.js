@@ -10,6 +10,7 @@ const citySelect = document.getElementById('selectCity');
 const country = document.querySelector('select:nth-of-type(1)');
 const region = document.getElementById('selectRegion');
 const city = document.getElementById('selectCity');
+const images = document.getElementById('images');
 
 // let countryIso = '';
 // let regionIso = '';
@@ -136,6 +137,7 @@ h1.addEventListener('click', () => {
    const weather = Location.getForecast(cityIso);
    console.log(weather);
 
-   const photos = Location.getImages('Paris')
-   console.log(photos)
-})
+
+   Location.getImages('Paris', images);
+
+})      

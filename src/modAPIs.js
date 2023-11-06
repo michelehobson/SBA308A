@@ -41,14 +41,27 @@ export async function getForecast(coordinates) {
 }
 
 var pexelKey = pexelConfig.KEY;
-export async function getImages(topic) {
+export async function getImages(topic, parent) {
     const client = await axios.get(`https://api.pexels.com/v1/search?query=${topic}&per_page=3&page=26`,
         {
             headers: {
                 Authorization: pexelKey
-              }           
+            }
         })
-    return client;
+
+        for(let i = 0; i < 3; i++) {
+            const medium = client.data.photos[i].src.medium;
+            const artist = client.data.photos[i].photographer;
+            const photo = document.createElement('div');
+            photo.innerHTML = `<img src=${medium}><figcaption>Photo By ${artist}</figcaption>`
+            parent.appendChild(photo);
+
+        }
+        console.log(client)
+        // console.log(client.data)
+        // console.log(client.data.photos[0].src.medium)
+        // console.log(client.data.photos[1].src.medium)
+        // console.log(client.data.photos[2].src.medium)
 }
 
 
