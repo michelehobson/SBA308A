@@ -56,3 +56,19 @@ h1 {
     margin-left: 90px;
 }
 
+.gallery {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 80vw;
+    margin: 100px auto 0px auto;
+}
+
+.gallery img {
+    width: calc(80vw / 3);
+    /* height: 300px; */
+}
+
+figcaption {
+    text-align: center;
+}

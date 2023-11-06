@@ -137,7 +137,6 @@ h1.addEventListener('click', () => {
    const weather = Location.getForecast(cityIso);
    console.log(weather);
 
-
-   Location.getImages('Paris', images);
+   Location.getImages('travel', images);
 
 })      
