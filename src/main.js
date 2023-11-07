@@ -3,14 +3,17 @@ import * as Location from './modAPIs.js';
 var key = countryConfig.KEY;
 var host = countryConfig.HOST;
 
-const wToSelect = document.querySelector('select:nth-of-type(2)');
+const wToSelect = document.getElementById('selectDestination');
 const regSelect = document.getElementById('selectRegion');
 const citySelect = document.getElementById('selectCity');
 
-const country = document.querySelector('select:nth-of-type(2)');
+const country = document.getElementById('selectDestination');
 const region = document.getElementById('selectRegion');
 const city = document.getElementById('selectCity');
 const images = document.getElementById('images');
+
+const leftBtn = document.getElementById('leftBtn');
+const rightBtn = document.getElementById('rightBtn');
 
 // let countryIso = '';
 // let regionIso = '';
@@ -22,49 +25,49 @@ const images = document.getElementById('images');
 
 // async function getStates(country) {
 //    const states = await axios.get(`https://country-state-city-search-rest-api.p.rapidapi.com/states-by-countrycode`,
-//        {
-//            params: {countrycode: country},
-//            headers: {
-//                'X-RapidAPI-Key': key,
-//                'X-RapidAPI-Host': host
-//            },
-//        }
+//       {
+//          params: {countrycode: country},
+//          headers: {
+//             'X-RapidAPI-Key': key,
+//             'X-RapidAPI-Host': host
+//          },
+//       }
 //    )
 //    if(states !== null) {
-//        const regionOptionBlank = document.createElement("option");
-//        regSelect.appendChild(regionOptionBlank);
-//        states.data.forEach((region) => {
-//           const regionOption = document.createElement("option");
-//           regionOption.text = region.name;
-//           regionOption.value = region.isoCode;
-//           regSelect.appendChild(regionOption);
-//        });
+//       const regionOptionBlank = document.createElement("option");
+//       regSelect.appendChild(regionOptionBlank);
+//       states.data.forEach((region) => {
+//          const regionOption = document.createElement("option");
+//          regionOption.text = region.name;
+//          regionOption.value = region.isoCode;
+//          regSelect.appendChild(regionOption);
+//       });
 //    }
 // }
 
 // async function getCities(country, regionCode) {
 //    const cities = await axios.get(`https://country-state-city-search-rest-api.p.rapidapi.com/cities-by-countrycode-and-statecode`,
-//        {
-//            params: {
-//                countrycode: country,
-//                statecode: regionCode
-//              },            
-//            headers: {
-//                'X-RapidAPI-Key': key,
-//                'X-RapidAPI-Host': host
-//            },
-//        }
+//       {
+//          params: {
+//             countrycode: country,
+//             statecode: regionCode
+//          },
+//          headers: {
+//             'X-RapidAPI-Key': key,
+//             'X-RapidAPI-Host': host
+//          },
+//       }
 //    )
 //    if(cities !== null) {
-//        const cityOptionBlank = document.createElement("option");
-//        citySelect.appendChild(cityOptionBlank);
-//        cities.data.forEach((city) => {
-//           const cityOption = document.createElement("option");
-//           cityOption.text = city.name;
-//           cityOption.value = city.latitude.concat(',').concat(city.longitude);
-//           console.log(cityOption.value)
-//           citySelect.appendChild(cityOption);
-//        });
+//       const cityOptionBlank = document.createElement("option");
+//       citySelect.appendChild(cityOptionBlank);
+//       cities.data.forEach((city) => {
+//          const cityOption = document.createElement("option");
+//          cityOption.text = city.name;
+//          cityOption.value = city.latitude.concat(',').concat(city.longitude);
+//          // console.log(cityOption.value)
+//          citySelect.appendChild(cityOption);
+//       });
 //    }
 // }
 
@@ -105,7 +108,15 @@ const images = document.getElementById('images');
 //    if(city.value !== cityIso) {
 //       if(city.value.length > 0) {
 //          cityIso = city.value;
-//          let currentWeather = Location.getForecast(cityIso)
+//          // let curWeather = Location.getForecast(cityIso)
+//          const curWeather = Location.getForecast(cityIso);
+//          console.log(curWeather)
+//          //    for(let w = 0; w < curWeather.length; w++) {
+
+
+//          //    }
+//          console.log(curWeather.data.conditon)
+//          console.log(curWeather.data.location)
 //       } else {
 //          clearCities();
 //       }
@@ -114,29 +125,80 @@ const images = document.getElementById('images');
 //    }
 // })
 
-let clearCities = () => {
-   cityIso = '';
-   city.length = 0;
-}
+// let clearCities = () => {
+//    cityIso = '';
+//    city.length = 0;
+// }
 
-let clearRegions = () => {
-   regionIso = '';
-   cityIso = '';
-   region.length = 0;
-   city.length = 0;
+// let clearRegions = () => {
+//    regionIso = '';
+//    cityIso = '';
+//    region.length = 0;
+//    city.length = 0;
 
-}
+// }
 
-let imageNbr = 0;
+// let imageNbr = 0;
 let countryIso = 'US';
 let regionIso = 'GA';
 let cityIso = '33.534068, -84.231185';
 const h1 = document.querySelector('h1');
 h1.style.cursor = 'pointer';
 h1.addEventListener('click', () => {
-   const weather = Location.getForecast(cityIso);
-   console.log(weather);
+   const curWeather = Location.getForecast(cityIso);
+   console.log(curWeather)
+   console.log(curWeather[0]);
 
-   imageNbr = Location.getImages(1, imageNbr, images);
-
+   // para.textContent = curWeather[0];
+   // para.textContent += curWeather[1];
+   // para.textContent += curWeather[2];
+   // para.textContent += curWeather[3];
+   // para.textContent += curWeather[4];
+   // para.textContent += curWeather[5];
+   // para.textContent += curWeather[6];
+   // para.textContent += curWeather[7];
+   // para.textContent += curWeather[8];
+   // para.textContent += curWeather[9];
+   // para.textContent += curWeather[10];
+   // para.textContent += curWeather[11];
+   // para.textContent += curWeather[12];
+   // console.log(curWeather[0]);
+   // console.log(curWeather[1]);
+   // console.log(curWeather[2]);
+   // console.log(curWeather[3]);
+   // console.log(curWeather[4]);
+   // console.log(curWeather[5]);
+   // console.log(curWeather[6]);
+   // console.log(curWeather[7]);
+   // console.log(curWeather[8]);
+   // console.log(curWeather[9]);
+   // console.log(curWeather[10]);
+   // console.log(curWeather[11]);
+   // console.log(curWeather[12]);
+   // para.appendChild(curWeather[0]);
+   // para.appendChild(curWeather[1]);
+   // para.appendChild(curWeather[2]);
+   // para.appendChild(curWeather[3]);
+   // para.appendChild(curWeather[4]);
+   // para.appendChild(curWeather[5]);
+   // para.appendChild(curWeather[6]);
+   // para.appendChild(curWeather[7]);
+   // para.appendChild(curWeather[8]);
+   // para.appendChild(curWeather[9]);
+   // para.appendChild(curWeather[10]);
+   // para.appendChild(curWeather[11]);
+   // para.appendChild(curWeather[12]);
 })      
+
+window.addEventListener('load', (e) => {
+   e.preventDefault();
+   localStorage.setItem('HobsonSba308a', 0);
+   Location.getImages(0, images);
+})
+
+leftBtn.addEventListener('click', (e) => {
+   Location.getImages(1, images);
+})
+rightBtn.addEventListener('click', (e) => {
+   Location.getImages(2, images);
+})

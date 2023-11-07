@@ -15,15 +15,26 @@
     <!-- <h1>The Travel App</h1> -->
     <h1>Places of The World</h1>
 
-    <div id="div1">
-        <div id="whereTo" class="whereTo">Destination&nbsp;&nbsp;<select name="selectDestination" id="selectDestination" class="selectDestination"></select></div>
-        <div id="regions" class="regions">Region&nbsp;&nbsp;<select name="selectRegion" id="selectRegion" class="selectRegion"></select></div>
-        <div id="cities" class="cities">City&nbsp;&nbsp;<select name="selectCity" id="selectCity" class="selectCity"></select></div>
-    </div>
-    <div id="weather"></div>
-    <div id="images" class="gallery">
+    <section id="sections">
+        <section class="col1">
+            <div id="whereTo" class="div1">Destination </div>
+            <div id="regions" class="div1">Region</div>
+            <div id="cities" class="div1">City</div>
+        </section>
+        <section class="col2">
+            <div>&nbsp;&nbsp;<select name="selectDestination" id="selectDestination" class="selectDestination"></select></div>
+            <div>&nbsp;&nbsp;<select name="selectRegion" id="selectRegion" class="selectRegion"></select></div>
+            <div>&nbsp;&nbsp;<select name="selectCity" id="selectCity" class="selectCity"></select></div>
+        </section>
+    </section>
 
+    <div id="aTag"><a class="weather" href="#">Weather</a></div>
+    <div id="weather">
+    </div>
+    <div id="images" class="gallery">
+        <div id="b1"><button id="leftBtn" class="arrows">&#10096;</button></div>
         <!-- <span class="credits"><a href="https://www.pexels.com">Photos provided by Pexels</a></span> -->
+        <div id="b2"><button id="rightBtn" class="arrows">&#10097;</button></div>
     </div>
     <script type="module" src="src/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

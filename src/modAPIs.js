@@ -37,10 +37,58 @@ export async function getForecast(coordinates) {
             },
         }
     )
-    return weather;
+    let w = [
+        weather.data.current.condition.text,
+        weather.data.current.feelslike_f,
+        weather.data.current.gust_mph,
+        weather.data.current.humidity,
+        weather.data.current.is_day,
+        weather.data.current.temp_f,
+        weather.data.current.vis_m,
+        weather.data.current.wind_degree,
+        weather.data.current.wind_dir,
+        weather.data.current.wind_mph,
+        weather.data.location.tz_id,
+        weather.data.location.lat,
+        weather.data.location.lon
+    ];
+    let para = document.createElement('p');
+    for(let i = 0; i < 13; i++) {
+        para.textContent = w[i]
+        console.log(w[i]);
+    }
+    const weather2 = document.getElementById('weather');
+    weather2.appendChild(para)
+
+    return w;
 }
 
-export async function getImages(action, index, parent) {
+// var pexelKey = pexelConfig.KEY;
+// export async function getImages(parent) {
+//     const client = await axios.get(`https://api.pexels.com/v1/search?query=weather&per_page=4&page=80`,
+//         {
+//             headers: {
+//                 Authorization: pexelKey
+//             }
+//         })
+
+//         for(let i = 0; i < 3; i++) {
+//             const medium = client.data.photos[i].src.medium;
+//             const artist = client.data.photos[i].photographer;
+//             const photo = document.createElement('div');
+//             photo.innerHTML = `<img src=${medium}><figcaption>Photo By ${artist}</figcaption>`
+//             photo.classList.add('gallery' + "img")
+
+//             parent.appendChild(photo);
+
+//         }
+//         console.log(client)
+//         // console.log(client.data)
+//         // console.log(client.data.photos[0].src.medium)
+//         // console.log(client.data.photos[1].src.medium)
+//         // console.log(client.data.photos[2].src.medium)
+// }
+export async function getImages(action, parent) {
     const image = [
         'https://images.pexels.com/photos/2028885/pexels-photo-2028885.jpeg?auto=compress&cs=tinysrgb&w=1600',
         'https://images.pexels.com/photos/5707570/pexels-photo-5707570.jpeg?auto=compress&cs=tinysrgb&w=1600',
@@ -95,21 +143,47 @@ export async function getImages(action, index, parent) {
         'https://images.pexels.com/photos/3801347/pexels-photo-3801347.jpeg?auto=compress&cs=tinysrgb&w=1600',
 
     ]
-    const ctr = index + 3;
-    if(action = 1)
-        for(index; index < ctr; index++) {
+
+    let indexK = localStorage.getItem('HobsonSba308a');
+    let index = parseInt(indexK)
+    let next;
+    let prev;
+    if(index >= 3) {
+        prev = index - 4;
+        document.getElementById('leftBtn').disabled = false;
+    } else {
+        document.getElementById('leftBtn').disabled = true;
+    }
+
+    if(index <= 57) {
+        next = index + 4;
+        document.getElementById('rightBtn').disabled = false;
+    } else {
+        document.getElementById('rightBtn').disabled = true;
+    }
+
+    if(action = 1 && document.getElementById('leftBtn').disabled === false) {
+        for(index; index > prev; index--) {
             const photo = document.createElement('div');
-            photo.innerHTML = `<img src=${image[index]}>`//<figcaption>Photo By ${artist}</figcaption>`
+            photo.innerHTML = `<img src=${image[index]}>`
             photo.classList.add('gallery' + "img")
             parent.appendChild(photo);
+        }
+
+    } else {//if (document.getElementById('rightBtn').disabled === false) {
+        console.log('INSIDE IF')
+        for(index; index < next; index++) {
+            const photo = document.createElement('div');
+            photo.innerHTML = `<img src=${image[index]}>`
+            photo.classList.add('gallery' + "img")
+            parent.appendChild(photo);
+            console.log('index: ' + index)
 
         }
-    //console.log(client)
-    // console.log(client.data)
-    // console.log(client.data.photos[0].src.medium)
-    // console.log(client.data.photos[1].src.medium)
-    // console.log(client.data.photos[2].src.medium)
-    return index;
+    }
+
+
+    localStorage.setItem('HobsonSba308a', index)
 }
 
 

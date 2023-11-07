@@ -9,39 +9,52 @@ h1 {
     font-size: 3.5em;
     text-align: center;
 }
-/* DIVS IDS*/
-#whereTo, #regions, #cities{
+
+#sections {
     display: flex;
-    /* justify-content: flex-start; */
     margin-left: 80px;
-    margin-top: 25px;
-}
-#div1 {
-    display: flex;
-    flex-flow: column wrap;
-    width: 62vw;
-}
-#regions, #cities {
-    /* align-self: flex-end; */
-    margin-top: 20px;
-    margin-left: 150px;
+    margin-top: 50px;
 }
 
-/* DIV CLASSES */
-.whereTo {
+.col1 {
     font-family: 'Neuton', sans-serif;
     font-weight: 300;
-    font-size: 2em;
+    font-size: 1.8em;
+    text-align: right;
+    margin-top: 25px;
 }
-.regions{
-    font-family: 'Neuton', sans-serif;
-    font-weight: 300;
-    font-size: 2em;
+
+.col2 {
+    margin: 25px 0px 0px 10px;
 }
-.cities{
+
+#weather {
+display: flex;
+margin: -150px 0px -150px 45vw;
+/* margin-left: 45vw;
+margin-bottom: -400px; */
+width: 50vw;
+height: 30vh;
+}
+.weather {
     font-family: 'Neuton', sans-serif;
     font-weight: 300;
-    font-size: 2em;
+    font-size: 1.8em;
+    text-align: left;
+    color: whitesmoke;  
+}
+
+.selectDestination, .selectRegion, .selectCity {
+    width: fit-content;
+    font-family: 'Neuton', sans-serif;
+    font-weight: 200;
+    font-size: 1.5em;    
+    border-radius: 10px;
+    margin: 2px 0px 2px 0px;
+}
+#aTag{
+    margin: 150px 0px -300px 400px;
+    width: 100px; 
 }
 
 /*  SELECT IDS */
@@ -50,38 +63,43 @@ h1 {
     width: 400px;
 }
 
-
-/*  SELECT CLASSES */
-.selectDestination {
-    margin-left: 10px;
-}
-.selectRegion {
-    margin-left: 18px;
-}
-.selectCity {
-    margin-left: 50px;
-}
-.selectDestination, .selectRegion, .selectCity {
-    width: fit-content;
-    font-family: 'Neuton', sans-serif;
-    font-weight: 200;
-    font-size: .75em;    
-    border-radius: 10px;
-}
-
 /* IMAGE CLASSES */
 .gallery {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    width: 80vw;
-    margin: 100px auto 0px auto;
+    /* width: 80vw; */
+    width: 65vw;
+    margin: 200px auto 0px auto;
+    order: 0;
 }
+
 .gallery img {
-    width: calc(80vw / 3.4);
+    width: calc(60vw / 4.4);
     margin: 0px 5px 0px 5px;
     border-radius: 6px;
+    transition: .5s ease-in;
 }
-figcaption {
-    text-align: center;
+
+.arrows {
+    font-size: 4em;
+    color: whitesmoke;
+    background-color: #383849;
+    cursor: pointer;
+}
+
+#b1, #b2 {
+    display: flex;
+    height: fit-content;
+    align-self: center;
+}
+#b1 {
+    justify-content: flex-start;
+    margin-right: 5px;
+}
+#images #b2 {
+    justify-content: flex-end;
+    margin-left: 5px;
+    order: 1;
+
 }
