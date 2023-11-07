@@ -28,5 +28,4 @@ Extras:
 I would have also had liked to:
 1. Add an auto suggest for the dropdown(s).
 2. Added travel advisories.
-3. 
-4. 
+
