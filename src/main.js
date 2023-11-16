@@ -130,12 +130,31 @@ window.addEventListener('load', (e) => {
    Location.getImages(images);
 })
 
-// // let imageNbr = 0;
+// let imageNbr = 0;
 // let countryIso = 'US';
 // let regionIso = 'GA';
 // let cityIso = '33.534068, -84.231185';
 // const h1 = document.querySelector('h1');
 // h1.style.cursor = 'pointer';
 // h1.addEventListener('click', () => {
-//    const curWeather = Location.getForecast(cityIso);
+//    let w = Location.getForecast(cityIso);
+   // console.log(typeof w)
+   // console.log(w)
+   // let p = JSON.parse(w)
+   // console.log(p)
+   // for (let obj in p) {
+   //    if (Object.keys(p.a)) {
+   //       console.log("JESUS")
+   //    }
+   //    console.log(Object.values(p))
+   // }
+//    let x = [w]
+//    for(let i = 0; i < 13; i++) {
+//       console.log(x[i])
+//       let para = document.createElement('p');
+//       para.textContent += x[i] + '\n'
+//       let showWeather = document.getElementById('weather') ;
+//       showWeather.prepend(para.innerHTML)
+//   }
+
 // })   

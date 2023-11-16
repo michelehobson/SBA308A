@@ -37,8 +37,8 @@ export async function getForecast(coordinates) {
             },
         }
     )
-    let w = [
-        weather.data.current.condition.text,
+    let w =
+        [weather.data.current.condition.text,
         weather.data.current.feelslike_f,
         weather.data.current.gust_mph,
         weather.data.current.humidity,
@@ -51,13 +51,37 @@ export async function getForecast(coordinates) {
         weather.data.location.tz_id,
         weather.data.location.lat,
         weather.data.location.lon
-    ];
-    let para = document.createElement('p');
+        ]
+
+    // let h4a = document.createElement('h4');
+    // let h4b = document.createElement('h4');
+    // let h4c = document.createElement('h4');
+    // let showWeather1 = document.getElementById('weather');
+    // let showWeather2 = document.getElementById('weather');
+    // let showWeather3 = document.getElementById('weather');
+    // h4a.textContent = weather.data.current.condition.text;
+    // showWeather1.appendChild(h4a);
+    // h4b.textContent = weather.data.current.feelslike_f;
+    // h4a.appendChild(h4b);
     for(let i = 0; i < 13; i++) {
-        para.innerHTML += w[i] + '\n'
+        let tmpA = window['para' + [i]]
+        tmpA = document.createElement('h4');
+        // `showWeather1${i}` = document.getElementById('weather')
+        let tmpB = window['showWeather' + [i]]
+        tmpB = document.getElementById('weather')
+        tmpA.textContent = w[i];
+        tmpB.appendChild(tmpA)
+        // console.log([`para${i}]`]);
+        // console.log(`para${i}`);
     }
-    const weather2 = document.getElementById('weather');
-    weather2.appendChild(para)
+    // for(let i = 0; i < 13; i++) {
+    //     `para${[i]}` = document.createElement('p');
+    //     para.textContent += w[i] + '\n'
+    //     `showWeather${[i]}` = document.getElementById('weather') ;
+    //     showWeather.prepend(para.innerHTML)
+    // }
+    // const weather2 = document.getElementById('weather');
+    // weather2.appendChild(para)
 
     return w;
 }
@@ -70,10 +94,10 @@ export async function getImages(parent) {
         'https://images.pexels.com/photos/325117/pexels-photo-325117.jpeg?auto=compress&cs=tinysrgb&w=1600',
     ]
 
-        for(let index = 0; index < 4; index++) {
-            const photo = document.createElement('div');
-            photo.innerHTML = `<img src=${image[index]}>`
-            photo.classList.add('gallery' + "img")
-            parent.appendChild(photo);
-        }
+    for(let index = 0; index < 4; index++) {
+        const photo = document.createElement('div');
+        photo.innerHTML = `<img src=${image[index]}>`
+        photo.classList.add('gallery' + "img")
+        parent.appendChild(photo);
     }
+}
